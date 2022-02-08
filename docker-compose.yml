@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  servicegateway:
+    image: ${DOCKER_REGISTRY-}servicegateway
+    build:
+      context: .
+      dockerfile: ServiceGateway/Dockerfile
+    ports:
+      - "4300:80"
+  service1:
+    image: ${DOCKER_REGISTRY-}service1
+    build:
+      context: .
+      dockerfile: Service1/Dockerfile
+    ports:
+      - "4301:80"
+  service2:
+    image: ${DOCKER_REGISTRY-}service2
+    build:
+      context: .
+      dockerfile: Service2/Dockerfile
+    ports:
+      - "4302:80"
